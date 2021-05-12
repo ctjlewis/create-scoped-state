@@ -1,6 +1,8 @@
 import React from 'react'
 import styles from './TestHeading.module.css'
 
+export const namedExport = 42;
+
 const TestHeading = () => {
   return (
     <div>
