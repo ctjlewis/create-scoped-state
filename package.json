@@ -1,17 +1,23 @@
 {
-  "name": "react-components-library-template",
+  "name": "create-stateful-context",
   "files": [
     "dist/**/*"
   ],
   "exports": {
-    ".": "./dist/index.js",
-    "./*": "./dist/*/index.js"
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*/index.js",
+      "import": "./dist/*/index.mjs"
+    }
   },
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "version": "0.2.0",
-  "description": "A template repository for developing a React component library.",
+  "description": "Create a context, provider/consumer pair, and useContext hook for managing global React application state.",
   "author": "C. Lewis",
   "license": "MIT",
   "private": false,
@@ -25,7 +31,8 @@
   },
   "dependencies": {
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "stateful-component": "^0.6.0"
   },
   "devDependencies": {
     "@types/next": "^9.0.0",

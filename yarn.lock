@@ -5090,6 +5090,14 @@ stacktrace-parser@0.1.10:
   dependencies:
     type-fest "^0.7.1"
 
+stateful-component@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/stateful-component/-/stateful-component-0.6.0.tgz#03e19aee9bbb3feaf1fa693140efb626139a3f0a"
+  integrity sha512-pi8/1WT+31LXnBkYcv6Ka276ftRoL1i3n/D30JxuLZQVYqxSPdpZf0xgPhyaywqd+XwvipT7aZKsU1tcOK+uNg==
+  dependencies:
+    react "^17.0.2"
+    react-dom "^17.0.2"
+
 static-extend@^0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/static-extend/-/static-extend-0.1.2.tgz#60809c39cbff55337226fd5e0b520f341f1fb5c6"

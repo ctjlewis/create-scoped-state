@@ -6,12 +6,18 @@ import { FC } from 'react';
 //   TestButton as TestButtonProd
 // } from '../../..'
 
-import TestButtonProd from '../../../dist/TestButton';
-import TestHeadingProd from '../../../dist/TestHeading';
+import createStatefulContextDev from '../../components/createStatefulContext';
+import createStatefulContextProd from '../../../dist/createStatefulContext';
 
-import TestButtonDev from '../../components/TestButton';
-import TestHeadingDev from '../../components/TestHeading';
+// const props = {
+//   initialState: { count: 0 },
+//   updateState: (state) => {},
+// };
 
+// const [StatefulProviderDev, useStatefulContextDev] = createStatefulContextDev({
+//   initialState: { count: 0 },
+//   updateState: (state) => state.updateState({ count: 2})
+// });
 
 const Row: FC = ({ children, ...props }) => {
   return (
@@ -43,13 +49,11 @@ const ComponentDemo = () => {
       <div className="w-full grid grid-cols-2 gap-8">
         <div className="grid grid-rows-2 gap-8 justify-items-center">
           <h3>Development</h3>
-          <TestButtonDev />
-          <TestHeadingDev />
+
         </div>
         <div className="grid grid-rows-2 gap-8 justify-items-center">
           <h3>Production</h3>
-          <TestButtonProd />
-          <TestHeadingProd />
+
         </div>
       </div>
     </Centered>

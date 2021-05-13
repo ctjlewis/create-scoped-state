@@ -4,6 +4,8 @@ object-assign
 @license MIT
 */
 
+/*! For license information please see index.js.LICENSE.txt */
+
 /** @license React v17.0.2
  * react-jsx-runtime.production.min.js
  *

@@ -1,11 +1,7 @@
 /// <reference types="react" />
 import createStatefulContext from './createStatefulContext';
-import TestButton from './TestButton';
-import TestHeading from './TestHeading';
-export { createStatefulContext, TestButton, TestHeading };
+export { createStatefulContext };
 declare const _default: {
-    createStatefulContext: 42;
-    TestButton: () => JSX.Element;
-    TestHeading: () => JSX.Element;
+    createStatefulContext: <T>({ initialState, updateState }: import("stateful-component").AsyncUpdate<T>) => [import("react").FC<{}>, import("./createStatefulContext").UseAsyncContextHook<T>];
 };
 export default _default;
