@@ -1,7 +1,6 @@
 import { FC, createContext, useContext } from "react";
 import { AsyncState, AsyncUpdate, StatefulProvider } from "stateful-component";
-
-export type UseAsyncContextHook<T> = () => AsyncState<T>;
+import { UseAsyncContextHook } from "./types";
 
 const NO_OP = () => console.log('No op called');
 

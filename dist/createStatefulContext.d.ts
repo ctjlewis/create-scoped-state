@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { AsyncState, AsyncUpdate } from "stateful-component";
-export declare type UseAsyncContextHook<T> = () => AsyncState<T>;
+import { AsyncUpdate } from "stateful-component";
+import { UseAsyncContextHook } from "./types";
 /**
  * Given an `initialState` object (specifying the default state) and a
  * `updateState` function (specifying how to determine a new state when the
