@@ -16,7 +16,7 @@
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Create a context, provider/consumer pair, and useContext hook for managing global React application state.",
   "author": "C. Lewis",
   "license": "MIT",
