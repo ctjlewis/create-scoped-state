@@ -26,7 +26,7 @@ const ButtonDemo = () => {
 const Display = () => {
   const { count } = useCount() ?? {};
   return (
-    <div className="grid grid-rows-2">
+    <div className="grid grid-rows-2 items-center">
       <p>Count: <strong>{count}</strong></p>
       <ButtonDemo />
     </div>
