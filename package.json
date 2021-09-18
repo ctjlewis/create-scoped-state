@@ -2,7 +2,7 @@
   "name": "create-stateful-context",
   "author": "C. Lewis <ctj.lewis@icloud.com>",
   "type": "module",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "MIT",
   "engines": {
     "node": ">=14"
@@ -11,6 +11,7 @@
     "preboot": "yarn clean",
     "boot": "tsc && rollup -c --silent",
     "bootstrap": "yarn boot && yarn build",
+    "client": "yarn --cwd demo",
     "dev": "tszip dev",
     "build": "tszip build",
     "test": "tszip test",
@@ -50,6 +51,6 @@
     "yarn-deduplicate": "^3.1.0"
   },
   "dependencies": {
-    "stateful-component": "^0.1.0"
+    "stateful-component": "^1.2.0"
   }
 }

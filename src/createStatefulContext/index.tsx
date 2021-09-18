@@ -1,8 +1,8 @@
-import { AsyncState, AsyncUpdate, StatefulProvider } from 'stateful-component';
 import { FC, createContext, useContext } from 'react';
-import { UseAsyncContextHook } from '../types';
+import { StateMachine, StateTransition } from 'stateful-component';
+import { StatefulProvider } from '../StatefulProvider';
 
-const NO_OP = () => console.log('No op called');
+const NO_OP = () => null;
 
 /**
  * Given an `initialState` object (specifying the default state) and a
@@ -42,14 +42,14 @@ const NO_OP = () => console.log('No op called');
  */
 export const createStatefulContext = <T,>({
   initialState,
-  updateState,
-}: AsyncUpdate<T>): [FC, UseAsyncContextHook<T>] => {
+  next,
+}: StateMachine<T>): [FC, () => StateTransition<T>] => {
   /**
    * The context must be initialized in this scope.
    */
-  const context = createContext<AsyncState<T>>({
+  const context = createContext<StateTransition<T>>({
     ...initialState,
-    updateState: NO_OP,
+    transition: NO_OP,
     loading: true,
   });
   /**
@@ -61,7 +61,7 @@ export const createStatefulContext = <T,>({
       <StatefulProvider
         context={context}
         initialState={initialState}
-        updateState={updateState}
+        next={next}
       >
         {children}
       </StatefulProvider>
@@ -70,7 +70,7 @@ export const createStatefulContext = <T,>({
   /**
    * Hook into the generated global context.
    */
-  const useStatefulContext: UseAsyncContextHook<T> = () => useContext(context);
+  const useStatefulContext = () => useContext(context);
 
   return [statefulProvider, useStatefulContext];
 };
