@@ -42,14 +42,14 @@ const NO_OP = () => null;
  */
 export const createScopedState = <T,>({
   initialState,
-  next,
+  nextState,
 }: StateMachine<T>): [FC, () => StateTransition<T>] => {
   /**
    * The context must be initialized in this scope.
    */
   const context = createContext<StateTransition<T>>({
     ...initialState,
-    transition: NO_OP,
+    updateState: NO_OP,
     loading: true,
   });
   /**
@@ -58,7 +58,11 @@ export const createScopedState = <T,>({
    */
   const scopedStateProvider: FC = ({ children }) => {
     return (
-      <StateProvider context={context} initialState={initialState} next={next}>
+      <StateProvider
+        context={context}
+        initialState={initialState}
+        nextState={nextState}
+      >
         {children}
       </StateProvider>
     );

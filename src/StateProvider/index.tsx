@@ -11,10 +11,10 @@ export function StateProvider<T>({
   context,
   children,
   initialState,
-  next,
+  nextState,
 }: StateProviderProps<T> & PropsWithChildren<{}>) {
   return (
-    <StatefulComponent initialState={initialState} next={next}>
+    <StatefulComponent initialState={initialState} nextState={nextState}>
       {(state) => <context.Provider value={state}>{children}</context.Provider>}
     </StatefulComponent>
   );

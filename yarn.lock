@@ -6455,10 +6455,10 @@ stack-utils@^2.0.3:
   dependencies:
     escape-string-regexp "^2.0.0"
 
-stateful-component@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/stateful-component/-/stateful-component-1.4.0.tgz#fe19297c6c5834c582ff913582874b6ee8291e14"
-  integrity sha512-CUJglFl6shVXKf4U9g6MNhFjwrvkP+fNwuR711P13EJB7wV+xbep1TrzFq4X0WBRqdurXIKS8A1RpbSXSUP+TA==
+stateful-component@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/stateful-component/-/stateful-component-1.5.1.tgz#a7dfa29b7728be524f1f62514e456039391c70e2"
+  integrity sha512-/76cZ3r3Wjy/10hGvFkEaP9gCXwjPpnQI4NL78TVG8d2J31h9EEZQlTxeeqImS4/QsBNuGkIdsvpANfcsQdHTg==
   dependencies:
     typescript "^4.4.3"
 

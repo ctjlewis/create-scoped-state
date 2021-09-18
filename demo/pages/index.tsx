@@ -2,12 +2,12 @@ import { FC } from 'react';
 import { CountProvider, useCount } from '../state';
 
 const ButtonDemo = () => {
-  const { count, transition } = useCount();
+  const { count, updateState } = useCount();
   return (
     <div>
       <button
         className="m-auto rounded-lg p-2 border-2"
-        onClick={() => transition({ count: count + 1 })}
+        onClick={() => updateState({ count: count + 1 })}
       >
         Press Me
       </button>
