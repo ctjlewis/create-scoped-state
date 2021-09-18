@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import { CountProvider, useCount } from '../state';
 
-const ButtonDemo = () => {
+const CountView = () => {
   const { count, updateState } = useCount();
   return (
-    <div>
+    <div className="grid grid-rows-2 items-center">
+      <p>Count: <strong>{count}</strong></p>
       <button
         className="m-auto rounded-lg p-2 border-2"
         onClick={() => updateState({ count: count + 1 })}
@@ -15,21 +16,10 @@ const ButtonDemo = () => {
   );
 }
 
-const Display = () => {
-  const { count } = useCount();
-  return (
-    <div className="grid grid-rows-2 items-center">
-      <p>Count: <strong>{count}</strong></p>
-      <ButtonDemo />
-    </div>
-  );
-}
-
-
 const DemoContext: FC = ({ children }) => {
   return (
     <CountProvider>
-      <Display />
+      <CountView />
       {children}
     </CountProvider>
   );

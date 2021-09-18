@@ -1,7 +1,3 @@
 import { createScopedState } from "../../dist/createScopedState";
 
-export const [CountProvider, useCount] = createScopedState({
-  initialState: {
-    count: 0,
-  },
-});
+export const [CountProvider, useCount] = createScopedState({ count: 0 });

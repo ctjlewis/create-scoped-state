@@ -1,5 +1,5 @@
 import { FC, createContext, useContext } from 'react';
-import { StateMachine, StateTransition } from 'stateful-component';
+import { StateTransition, StateTransitionHook } from 'stateful-component';
 import { StateProvider } from '../StateProvider';
 
 const NO_OP = () => null;
@@ -40,10 +40,10 @@ const NO_OP = () => null;
  *    // ...
  * }
  */
-export const createScopedState = <T,>({
-  initialState,
-  nextState,
-}: StateMachine<T>): [FC, () => StateTransition<T>] => {
+export const createScopedState = <T,>(
+  initialState: T,
+  nextState?: StateTransitionHook<T>,
+): [FC, () => StateTransition<T>] => {
   /**
    * The context must be initialized in this scope.
    */
