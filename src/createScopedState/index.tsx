@@ -1,6 +1,6 @@
 import { FC, createContext, useContext } from 'react';
 import { StateMachine, StateTransition } from 'stateful-component';
-import { StatefulProvider } from '../StatefulProvider';
+import { StateProvider } from '../StateProvider';
 
 const NO_OP = () => null;
 
@@ -40,7 +40,7 @@ const NO_OP = () => null;
  *    // ...
  * }
  */
-export const createStatefulContext = <T,>({
+export const createScopedState = <T,>({
   initialState,
   next,
 }: StateMachine<T>): [FC, () => StateTransition<T>] => {
@@ -54,23 +54,19 @@ export const createStatefulContext = <T,>({
   });
   /**
    * Any component beneath this provider in the render tree can use the
-   * `useAsyncContext` hook to get the current global state.
+   * `useScopedState()` hook to get the current scoped state.
    */
-  const statefulProvider: FC = ({ children }) => {
+  const scopedStateProvider: FC = ({ children }) => {
     return (
-      <StatefulProvider
-        context={context}
-        initialState={initialState}
-        next={next}
-      >
+      <StateProvider context={context} initialState={initialState} next={next}>
         {children}
-      </StatefulProvider>
+      </StateProvider>
     );
   };
   /**
-   * Hook into the generated global context.
+   * Hook into the scoped state.
    */
-  const useStatefulContext = () => useContext(context);
+  const useScopedState = () => useContext(context);
 
-  return [statefulProvider, useStatefulContext];
+  return [scopedStateProvider, useScopedState];
 };

@@ -1,6 +1,6 @@
-import { createStatefulContext } from "../../dist/createStatefulContext";
+import { createScopedState } from "../../dist/createScopedState";
 
-export const [CountProvider, useCount] = createStatefulContext({
+export const [CountProvider, useCount] = createScopedState({
   initialState: {
     count: 0,
   },

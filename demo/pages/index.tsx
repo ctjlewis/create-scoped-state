@@ -1,16 +1,8 @@
 import { FC } from 'react';
 import { CountProvider, useCount } from '../state';
 
-const Centered: FC = ({ children }) => {
-  return (
-    <div className="w-full h-full flex justify-center items-center">
-      {children}
-    </div>
-  );
-}
-
 const ButtonDemo = () => {
-  const { count, transition } = useCount() ?? {};
+  const { count, transition } = useCount();
   return (
     <div>
       <button
@@ -24,7 +16,7 @@ const ButtonDemo = () => {
 }
 
 const Display = () => {
-  const { count } = useCount() ?? {};
+  const { count } = useCount();
   return (
     <div className="grid grid-rows-2 items-center">
       <p>Count: <strong>{count}</strong></p>
@@ -45,7 +37,7 @@ const DemoContext: FC = ({ children }) => {
 
 const ComponentDemo = () => {
   return (
-    <Centered>
+    <div className="w-full h-full flex justify-center items-center">
       <div className="w-full text-center space-y-8">
         <div>
           <h3><code>Context 1</code></h3>
@@ -65,7 +57,7 @@ const ComponentDemo = () => {
           </DemoContext>
         </div>
       </div>
-    </Centered>
+    </div>
   );
 };
 
