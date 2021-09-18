@@ -6455,10 +6455,10 @@ stack-utils@^2.0.3:
   dependencies:
     escape-string-regexp "^2.0.0"
 
-stateful-component@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/stateful-component/-/stateful-component-1.2.0.tgz#959da6597d66d27b54b4a782dd64c98f0ded7c5c"
-  integrity sha512-HygA4l71pcxXvdA74gJDNC96VcVpzytlEnbVvFU+vmy4uhSEbZFhQv5gzfu32cg38/9ODJBspA6gbKnt1aBQag==
+stateful-component@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/stateful-component/-/stateful-component-1.3.0.tgz#b290e8d94358a7af5e1b45f3708cece4a6a776a4"
+  integrity sha512-kb2Kq4pDYYWs90pQMg1Qn/IReluaC7HS1XI42NSwVOWelaec10Vbsc+4gPNtdRK+N65mk8VuOVuWDTXNAbeWCA==
 
 stream-combiner@~0.0.4:
   version "0.0.4"
