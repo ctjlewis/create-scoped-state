@@ -15,10 +15,13 @@
    * Size the root view (html > body > #__next) to 100% of the viewport, so that
    * immediate flex children size as expected and the page flows as expected
    * without crushing the layout on mobile as described below.
+   * 
+   * Prevent purgecss from removing the #__next selector.
    */
+  /* purgecss start ignore */
   html,
   body,
-  #__next {
+  body > #__next {
     /**
      * Ensure there's no margin or padding.
      */
@@ -33,6 +36,7 @@
     */
     @apply h-full w-full min-h-full min-w-full;
   }
+  /* purgecss end ignore */
   /**
    * Links will not change color by default, but *will* natively fade an
    * underline in on hover/focus/click for accessibility.
