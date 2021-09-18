@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "link-react": "npm link ../node_modules/react",
+    "link-react-dom": "npm link ../node_modules/react-dom",
+    "link-pkgs": "yarn link-react && yarn link-react-dom",
+    "predev": "yarn link-pkgs",
+    "prebuild": "yarn --cwd .. build && yarn link-pkgs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
