@@ -27,24 +27,42 @@ const DemoContext: FC = ({ children }) => {
 
 const ComponentDemo = () => {
   return (
-    <div className="w-full h-full flex justify-center items-center">
-      <div className="w-full text-center space-y-8">
+    <div className="w-full h-full flex items-center">
+      <div className="w-full text-center flex flex-col gap-4">
         <div>
           <h3><code>Context 1</code></h3>
-          <DemoContext />
+          <CountProvider>
+            <CountView />
+          </CountProvider>
         </div>
+
+        <hr />
 
         <div>
           <h3><code>Context 2</code></h3>
-          <DemoContext />
+          <CountProvider>
+            <CountView />
+          </CountProvider>
         </div>
 
-        <div className="grid grid-cols-2 items-center">
-          <h3><code>Context 3</code></h3>
-          <DemoContext>
-            <h4>Sub-Context</h4>
-            <DemoContext />
-          </DemoContext>
+        <hr />
+
+        <div className="flex flex-col gap-4">
+          <h3><code>Context 3 (2 counters)</code></h3>
+          <CountProvider>
+            <CountView />
+            <CountView />
+            <h4><code>Context 3.1: sub-context (3 counters)</code></h4>
+            <p>
+              State is scoped to the nearest provider, so this context is not
+              updated by changes to its parents.
+            </p>
+            <CountProvider>
+              <CountView />
+              <CountView />
+              <CountView />
+            </CountProvider>
+          </CountProvider>
         </div>
       </div>
     </div>
