@@ -3,7 +3,7 @@
   "description": "Create a provider and effect hook for a scoped React state.",
   "author": "C. Lewis <ctj.lewis@icloud.com>",
   "type": "module",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "license": "MIT",
   "engines": {
     "node": ">=14"
