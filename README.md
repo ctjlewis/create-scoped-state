@@ -1,4 +1,12 @@
-# Create Scoped State
+# Create Scoped State for React
+
+This tool makes it easy to create a scoped state for your React application.
+Given an initial state, `createScopedState` will return a `Provider` and a
+`useState()` hook for use anywhere in the app.
+
+See **Example** below for details on the pattern, which was mostly designed to
+make asynchronous updates simpler, without requiring boilerplate calls to
+`useEffect` etc.
 
 ### Demo
 
@@ -11,25 +19,26 @@ https://create-scoped-state.vercel.app/
 See Demo above.
 
 ```ts
-// ../state.ts
+// state.ts
+// Create, export Provider and Hook
 export const [CountProvider, useCount] = createScopedState({ count: 0 });
-export const [SomethingElseProvider, useSomethingElse] = createScopedState({
-  // ...,
-});
 ```
 
 ```tsx
 // index.ts
+// Import Provider and Hook
 import { CountProvider, useCount } from '../state';
 
 const CountView = () => {
+  // Read scoped state
   const { count, updateState } = useCount();
   return (
     <div>
       <p>
         Count: <strong>{count}</strong>
       </p>
-      <button onClick={() => updateState({ count: count + 1 })}>
+      {/* Update scoped state. */}
+      <button onClick={async () => updateState({ count: count + 1 })}>
         Press Me
       </button>
     </div>
@@ -39,7 +48,8 @@ const CountView = () => {
 
 The `useCount()` state is scoped to its closest provider.  Below are two
 contexts, including one with two counters which share the same state (pressing
-the button increments both counters).
+the button increments both counters).  See the **Demo** above for a more
+detailed example.
 
 ```tsx
 const DemoContext: FC = () => {
