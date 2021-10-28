@@ -25,29 +25,40 @@ import { CountProvider, useCount } from '../state';
 const CountView = () => {
   const { count, updateState } = useCount();
   return (
-    <div className="grid grid-rows-2 items-center">
-      <p>Count: <strong>{count}</strong></p>
-      <button
-        className="m-auto rounded-lg p-2 border-2"
-        onClick={() => updateState({ count: count + 1 })}
-      >
+    <div>
+      <p>
+        Count: <strong>{count}</strong>
+      </p>
+      <button onClick={() => updateState({ count: count + 1 })}>
         Press Me
       </button>
     </div>
   );
-}
+};
+```
 
-const DemoContext: FC = ({ children }) => {
+The `useCount()` state is scoped to its closest provider.  Below are two
+contexts, including one with two counters which share the same state (pressing
+the button increments both counters).
+
+```tsx
+const DemoContext: FC = () => {
   return (
-    /**
-     * The `useCount()` state is scoped to its closest provider parent.
-     */
-    <CountProvider>
-      <CountView />
-      {children}
-    </CountProvider>
+    <div>
+      {/* Isolated counter. */}
+      <CountProvider>
+        <CountView />
+      </CountProvider>
+
+      {/* Two counters sharing a state separate from the first one.  */}
+      <CountProvider>
+        <CountView />
+        <CountView />
+      </CountProvider>
+
+    </div>
   );
-}
+};
 ```
 
 # User Guide
@@ -57,6 +68,7 @@ TypeScript with the latest ESNext syntax in `src/` and compiled to ES module
 output in `dist/`.
 
 ## Developing
+
 To compile the project and watch for changes:
 
 ```
@@ -64,6 +76,7 @@ yarn dev
 ```
 
 ## Building
+
 To build the release package:
 
 ```
@@ -71,6 +84,7 @@ yarn build
 ```
 
 ## Publish
+
 To compile the release build and publish to NPM:
 
 ```
